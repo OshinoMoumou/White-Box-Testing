@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HelloWorld.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo</a> &gt; <a href="index.source.html" class="el_package">com.test.jacoco</a> &gt; <span class="el_source">HelloWorld.java</span></div><h1>HelloWorld.java</h1><pre class="source lang-java linenums">package com.test.jacoco;
+
+import javax.imageio.event.IIOReadWarningListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+public class HelloWorld {
+<span class="fc" id="L10">    public HelloWorld() {</span>
+
+<span class="fc" id="L12">    }</span>
+
+    public String Method1() {
+<span class="fc" id="L15">        return &quot;Hello World&quot;;</span>
+    }
+
+    public int Method2(int a, int b) {
+<span class="fc" id="L19">        return a + b;</span>
+    }
+    
+    public int Method3(int a, int b, int c){
+<span class="fc bfc" id="L23" title="All 6 branches covered.">    	if((a&gt;5&amp;&amp;b&lt;0)||c&gt;0) {</span>
+<span class="fc" id="L24">    		System.out.println(&quot;Condition 1&quot;);</span>
+    	}
+<span class="fc bfc" id="L26" title="All 4 branches covered.">    	else if(a&lt;5 &amp;&amp; c&lt;-2 ) {</span>
+<span class="fc" id="L27">    		System.out.println(&quot;Condition 2&quot;);</span>
+    	}
+    	else {
+<span class="fc" id="L30">    		System.out.println(&quot;Condition 3&quot;);</span>
+    	}
+<span class="fc" id="L32">    	return 0;</span>
+    }
+    public int Method4(int a, int b, int c, int d, float e) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">    	if(a == 0) {</span>
+<span class="fc" id="L36">    		return 0;</span>
+    	}
+<span class="fc" id="L38">    	int x = 0;</span>
+<span class="fc bfc" id="L39" title="All 6 branches covered.">    	if((a == b) || ((c == d) &amp;&amp; (bug(a)))) {</span>
+<span class="fc" id="L40">    		 x = 1; </span>
+    	}
+<span class="fc" id="L42">    	e = 1/x;</span>
+<span class="fc" id="L43">    	return 0;</span>
+    }
+    public boolean bug(int a) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">    	if(a == 5) return true;</span>
+<span class="fc" id="L47">    	return false;</span>
+    }
+    
+    
+    public boolean isTriangle(int a, int b, int c) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether  a
+    	 * triangle is formed or not when given the input edge a, b and c.
+    	 */
+<span class="fc bfc" id="L56" title="All 6 branches covered.">        if(a &lt; 1 || b &lt; 1 || c &lt; 1){</span>
+<span class="fc" id="L57">            return false;</span>
+        }
+<span class="fc bfc" id="L59" title="All 6 branches covered.">        if(a + b &lt;= c || a + c &lt;= b || b + c &lt;= a){</span>
+<span class="fc" id="L60">            return false;</span>
+        }
+<span class="fc" id="L62">    	return true;</span>
+    }
+    public boolean isBirthday(int year, int month, int day) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether a 
+    	 * legitimate date of birth between 1990/01/01 and 2019/10/01 is 
+    	 * formed or not when given the input year, month and day.
+    	 */
+<span class="fc" id="L70">        List&lt;Integer&gt; month30 = new ArrayList&lt;Integer&gt;(Arrays.asList(4, 6, 9, 11));</span>
+<span class="fc" id="L71">        List&lt;Integer&gt; month31 = new ArrayList&lt;Integer&gt;(Arrays.asList(1, 3, 5, 7, 8, 10 ,12));</span>
+
+<span class="fc bfc" id="L73" title="All 14 branches covered.">        if(year &lt; 1990 || year &gt; 2019 || (year == 2019 &amp;&amp; month &gt; 10) || (year == 2019 &amp;&amp; month == 10 &amp;&amp; day &gt; 1)){</span>
+<span class="fc" id="L74">            return false;</span>
+        }
+<span class="fc bfc" id="L76" title="All 6 branches covered.">        if(month &lt; 1 || month &gt; 12 || day &lt; 1){</span>
+<span class="fc" id="L77">            return false;</span>
+        }
+<span class="fc bfc" id="L79" title="All 4 branches covered.">        if(month30.contains(month) &amp;&amp; day &gt; 30){</span>
+<span class="fc" id="L80">            return false;</span>
+        }
+<span class="fc bfc" id="L82" title="All 4 branches covered.">        if(month31.contains(month) &amp;&amp; day &gt; 31){</span>
+<span class="fc" id="L83">            return false;</span>
+        }
+<span class="fc bfc" id="L85" title="All 6 branches covered.">        if(year % 4 == 0 &amp;&amp; month == 2 &amp;&amp; day &gt; 29){//闰年</span>
+<span class="fc" id="L86">            return false;</span>
+        }
+<span class="fc bfc" id="L88" title="All 6 branches covered.">        if(year % 4 != 0 &amp;&amp; month == 2 &amp;&amp; day &gt; 28){//非闰年</span>
+<span class="fc" id="L89">            return false;</span>
+        }
+<span class="fc" id="L91">    	return true;</span>
+    	
+    }
+    public Double miniCalculator(double a, double b, char op) {
+    	/**
+    	 * TODO: You need to complete this method to form a small calculator which 
+    	 * can calculate the formula: &quot;a op b&quot;, the op here can be four basic  
+    	 * operation: &quot;+&quot;,&quot;-&quot;,&quot;*&quot;,&quot;/&quot;. 
+    	 */
+<span class="fc" id="L100">    	double result = 0.0;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        if(op == '+'){</span>
+<span class="fc" id="L102">            result = a + b;</span>
+        }
+<span class="fc bfc" id="L104" title="All 2 branches covered.">        if(op == '-'){</span>
+<span class="fc" id="L105">            result = a - b;</span>
+        }
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        if(op == '*'){</span>
+<span class="fc" id="L108">            result = a * b;</span>
+        }
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        if(op == '/'){</span>
+<span class="fc" id="L111">            result = a / b;</span>
+        }
+<span class="fc" id="L113">    	return result;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
